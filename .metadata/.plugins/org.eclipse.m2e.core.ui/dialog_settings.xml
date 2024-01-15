@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Java Programs\myproject\bin\myproject\SeleTestWithChrome"/>
 			<item value="D:\Java Programs\myproject\bin\myproject\upes.devops.3"/>
 			<item value="D:\Java Programs\myproject\bin\myproject\upes.devops.first\pom.xml"/>
 			<item value="D:\Java Programs\myproject\bin\myproject\upes.devops.3\pom.xml"/>
@@ -47,6 +48,8 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.selreport"/>
+			<item value="SeleniumReports"/>
 			<item value="SampleMaven"/>
 			<item value="devops.first"/>
 			<item value="upes.devops"/>
@@ -54,6 +57,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="seleniumreport"/>
+			<item value="ExtendReport"/>
 			<item value="BRM"/>
 			<item value="upes.devops.first"/>
 			<item value="upes.devops.3"/>

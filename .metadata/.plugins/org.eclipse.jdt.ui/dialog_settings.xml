@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
-	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-11"/>
+	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-1.8"/>
 	<item key="org.eclipse.jdt.ui.last.selected.create.moduleinfo" value="false"/>
-	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\Java Programs\myproject\bin\myproject\upes.devops.first\target"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Program Files\SeleniumJars"/>
 	<list key="workingset_selection_history">
 		<item value="JavaPrograms"/>
 	</list>

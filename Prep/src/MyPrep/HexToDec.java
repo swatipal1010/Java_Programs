@@ -33,8 +33,8 @@ public class HexToDec {
 		int sum=0;
 		System.out.print("The corresonding decimal value is: ");
 		for(int i=0; i<num;i++) {
-			val[i]= keyValueMap.get(chrs[i]);
-			sum +=val[i]*Math.pow(16, num-1-i);
+			val[i]= keyValueMap.get(chrs[i]);          //Considering the decimal numbers from L to R
+			sum +=val[i]*Math.pow(16, num-1-i);		  // Multiplying with decimal no.s with power of 16 from L to R
 		}
 		System.out.print(sum);
 		

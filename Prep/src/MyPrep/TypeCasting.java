@@ -16,8 +16,8 @@ public class TypeCasting {
 		System.out.println("Sum of "+b+" + "+s+" is: "+sum);
 		
 		int add1 = c+i;
-		System.out.println("Sum of "+c+" + "+i+" is: "+add1);
-		
+		System.out.println("Sum of "+c+" + "+i+" is: "+add1);		//Character UniCode value is considered for calculation
+			
 		//Explicit/Narrowing conversion
 		short add2 = (short)(i+s);
 		System.out.println("Sum of "+i+" + "+s+" is: "+add2);

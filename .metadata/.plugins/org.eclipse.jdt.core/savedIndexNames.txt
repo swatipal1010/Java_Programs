@@ -172,7 +172,6 @@ INDEX VERSION 1.131+D:\Java Programs\myproject\bin\myproject\.metadata\.plugins\
 2106078170.index
 1289303455.index
 1098992263.index
-3817580459.index
 2956185974.index
 2256069617.index
 700973652.index

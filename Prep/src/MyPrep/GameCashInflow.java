@@ -25,9 +25,9 @@ public class GameCashInflow {
 			
 		}
 		if(sumA>sumB) {
-			System.out.println("A has more cash than B");
+			System.out.println("A has "+(sumA-sumB)+" more cash than B");
 		}else {
-			System.out.println("B has more cash than A");
+			System.out.println("B has "+(sumB-sumA)+" more cash than A");
 		}
 
 	}

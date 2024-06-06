@@ -5,7 +5,7 @@ public class BinaryToDec1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("The digits will be stored in the array");
+		System.out.println("The binary digits will be stored in the array");
 		System.out.println("Specify the length of the array: ");
 		int n = sc.nextInt();
 		

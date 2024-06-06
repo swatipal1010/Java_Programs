@@ -26,15 +26,16 @@ public class HexToDec {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the hexadecimal number: ");
 		String str = sc.nextLine();
-		char chrs[] = str.toCharArray();
+		str = str.toUpperCase();
+		//char chrs[] = str.toCharArray();
 		int num = str.length();
-		int val[] = new int[num];
+		
 		
 		int sum=0;
 		System.out.print("The corresonding decimal value is: ");
 		for(int i=0; i<num;i++) {
-			val[i]= keyValueMap.get(chrs[i]);          //Considering the decimal numbers from L to R
-			sum +=val[i]*Math.pow(16, num-1-i);		  // Multiplying with decimal no.s with power of 16 from L to R
+			int decNum = keyValueMap.get(str.charAt(i));          //Considering the decimal numbers from L to R
+			sum +=decNum*Math.pow(16, num-1-i);		  // Multiplying with decimal no.s with power of 16 from L to R
 		}
 		System.out.print(sum);
 		

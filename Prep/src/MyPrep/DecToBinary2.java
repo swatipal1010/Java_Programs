@@ -11,7 +11,7 @@ public class DecToBinary2 {
 		System.out.println("The binary equivalent of "+num+" is: ");
 		
 		for(int i=16-1;i>=0;i--) {
-			if((num & (1<<i))==0) {			//Doing the Binary AND operation of ith bit of decimal number with 1
+			if((num & (1<<i))==0) {			//Doing the Binary AND operation of ith bit of decimal number with 1 -- Jhn par bhi 1 from binary number will match with the left shifted 1, 1 will get printed
 				System.out.print(0);
 			}else {
 				System.out.print(1);

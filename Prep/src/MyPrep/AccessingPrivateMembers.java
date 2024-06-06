@@ -1,5 +1,20 @@
 package MyPrep;
 
+public class AccessingPrivateMembers {
+
+	public static void main(String[] args) {
+		Farm farm1 = new Farm();
+		farm1.setSides(40.0,20.0);
+		double farmArea = farm1.area();
+
+		System.out.println("Area of the farm is:"+farmArea);
+		System.out.println("Length of the farm is: "+farm1.getLength());
+		System.out.println("Width of the farm is: "+farm1.getWidth());
+
+	}
+
+}
+
 public class Farm{
 	private double length;
 	private double width;
@@ -19,18 +34,4 @@ public class Farm{
 	public double getWidth() {
 		return width;
 	}
-}
-public class AccessingPrivateMembers {
-
-	public static void main(String[] args) {
-		Farm farm1 = new Farm();
-		farm1.setSides(40.0,20.0);
-		double farmArea = farm1.area();
-
-		System.out.println("Area of the farm is:"+farmArea);
-		System.out.println("Length of the farm is: "+farm1.getLength());
-		System.out.println("Width of the farm is: "+farm1.getWidth());
-
-	}
-
 }

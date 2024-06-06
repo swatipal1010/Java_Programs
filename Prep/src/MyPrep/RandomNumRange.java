@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class RandomNumRange {
 	//generating the numbers between the range 10 to 1000
 	public static void main(String[] args) {
-		int num = (int)(Math.random()*(1000-10+1)+1);				//Math.random()*(1000-10+1) gives the range 0.0(inclusive) to 991.0(exclusive)
+		int num = (int)(Math.random()*(1000-10+1)+10);				//Math.random()*(1000-10+1) gives the range 0.0(inclusive) to 991.0(exclusive)
 																   //Adding 10 gives the random no.s in the range (0.0+10) to (990.0+10)
 		System.out.println("The resulted random number is: "+num);
 		

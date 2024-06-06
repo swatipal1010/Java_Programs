@@ -10,7 +10,7 @@ import java.util.Arrays;
 	Step5: If the array is descending sorted, ceiling value of the target value is at arr[index-1]
 */
 
-public class CeilingOfNumber {
+public class NextGreatestNumber {
 
 	static int binarySearchAgn(int arr[], int target) {
 		int start =0;

@@ -1,28 +1,25 @@
-interface Camera{
+
+interface Camera1{
 	public void takeSnap();
 }
 
 
-interface VideoRecorder{
+interface VideoRecorder1{
 	public void recordVideo();
 	
-	private void greet() {
-		System.out.println("Hello Everyone!!");
-	}
 	default void recordIn4K() {
-		greet();
 		System.out.println("Recording video in 4k..");
 	}
 }
 
 
-interface Wifi{
+interface Wifi1{
 	public String[] getNetworks();
 	public void connectToNetwork(String network);
 }
 
 
-class CellularPhone{
+class MyCellularPhone{
 	public void dialNumber(int num) {
 		System.out.println("Dialing to: "+num);
 	}
@@ -32,7 +29,7 @@ class CellularPhone{
 	}
 }
 
-class SmartPhone extends CellularPhone implements Camera, VideoRecorder, Wifi{
+class MySmartPhone extends MyCellularPhone implements Camera1, VideoRecorder1, Wifi1{
 	public void takeSnap() {
 		System.out.println("Taking snap...");
 	}
@@ -52,21 +49,17 @@ class SmartPhone extends CellularPhone implements Camera, VideoRecorder, Wifi{
 }
 
 
-//class containing main method
-public class Interfaces {
+
+public class InterfacePolymorphism {
+
 	public static void main(String[] args) {
-		SmartPhone obj = new SmartPhone();
+		Camera1 cam1 = new MySmartPhone();		//We can only use the methods of Camera interface
+											//We only want to use the Camera thus restricting the other features to ensure security
+		cam1.takeSnap();
 		
-		System.out.println("Following networks are available: ");
-		String[] availableNetworks = obj.getNetworks();
-		for(String str: availableNetworks) {
-			System.out.println(str);
-		}
-		
-		obj.connectToNetwork("Airtel");
-		
-		//Executing default method
-		obj.recordIn4K();
+		MySmartPhone smrtPhone = new MySmartPhone();
+		smrtPhone.recordVideo();
+		smrtPhone.connectToNetwork("Jio");
 
 	}
 

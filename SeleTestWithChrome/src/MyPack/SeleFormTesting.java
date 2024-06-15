@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleFormTesting {
 	public static void main(String[] args) {
         // Set the path to the ChromeDriver executable
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

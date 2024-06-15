@@ -2,10 +2,10 @@ package AutomationSe;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 
 public class FormPage {
-
-	public static void main(String[] args) {
+	public static void submitForm(WebDriver driver) {
 		driver.findElement(By.id("first-name")).sendKeys("John");
 		driver.findElement(By.id("last-name")).sendKeys("Doe");
 		
@@ -21,7 +21,6 @@ public class FormPage {
 		driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN);			//To close the datepicker
 		
 		driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
-
 	}
-
+		
 }

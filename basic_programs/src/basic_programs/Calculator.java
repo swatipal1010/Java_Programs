@@ -51,7 +51,7 @@ public class Calculator {
 			}
 			break;
 		default:
-			System.out.println("You enetered a wrong operator!!!");
+			System.out.println("You entered a wrong operator!!!");
 		
 		}
 	}

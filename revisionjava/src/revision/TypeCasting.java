@@ -11,7 +11,7 @@ public class TypeCasting {
 		float e;
 		
 		c = (float)a/b;		  // Widening: int to float (implicit casting within the expression)
-		e = (float)(a/b);    // Narrowing: int to float (explicit casting required)
+		e = (float)(a/b);    // Widening: int to float (explicit casting required)
 		i = (int)d;
 		System.out.println("Value of i is: "+i);
 		System.out.println("Value of c is: "+c);

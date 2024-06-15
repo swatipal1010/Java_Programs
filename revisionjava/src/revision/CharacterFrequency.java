@@ -16,7 +16,7 @@ public class CharacterFrequency {
             for(int j = i + 1; j < str.length(); j++) {
                 if(arr[i] == arr[j] && arr[i] != '0') {
                     freq[i]++;
-                    arr[j] = '0'; // To mark visited characters as '0'
+                    arr[j] = '0'; 								// To mark visited characters as '0'
                 }
             }
         }

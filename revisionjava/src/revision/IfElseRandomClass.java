@@ -10,7 +10,7 @@ public class IfElseRandomClass {
 		
 		//THE CODE BELOW GENERATES RANDOM NUMBERS FROM 1 TO 50
 		rate = (1+ (Math.abs(rand.nextInt()))%50);					//Assign random numbers to rate
-													//abs() method of Math class is used to get absolute value of random numbers
+																	//abs() method of Math class is used to get absolute value of random numbers
 		System.out.println("Rate = "+rate);
 		
 		if(rate>=40)

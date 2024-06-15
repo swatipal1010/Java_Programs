@@ -8,7 +8,7 @@ public class QuadRoots {
 		int d;
 		double p, x1, x2;
 		
-		System.out.println("Enter the integer vaalue of coefficient of x^2 : ");
+		System.out.println("Enter the integer value of coefficient of x^2 : ");
 		int a = sc.nextInt();
 		System.out.println("Enter the integer value of coefficient of x : ");
 		int b = sc.nextInt();

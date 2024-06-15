@@ -30,7 +30,6 @@ public class Factorial2 {
 			return fact;
 		}
 		return -1;
-		
 	}
 	
 }

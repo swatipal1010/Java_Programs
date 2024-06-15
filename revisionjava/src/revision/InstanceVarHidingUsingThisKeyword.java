@@ -18,7 +18,9 @@ public class InstanceVarHidingUsingThisKeyword {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		BlueBox obj = new BlueBox(10,20,15);
+		int vol = obj.volume();
+		System.out.println("Volume of the box with length: "+obj.length+", width: "+obj.width+", height: "+obj.height+ " is: "+vol);
 	}
 
 }

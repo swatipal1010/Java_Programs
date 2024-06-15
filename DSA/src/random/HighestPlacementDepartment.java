@@ -91,7 +91,6 @@ public class HighestPlacementDepartment {
 			System.out.println(mapPlacement.get(x)+" : "+ x);
 		}
 		
-		
 		sc.close();
 }
 }

@@ -60,25 +60,29 @@ public class ThreadConstructors {
 	//Using constructor of the type Thread()
 		MyThr1 t1 = new MyThr1();
 		System.out.println("Id of the running thread is: "+t1.getId());
-		t1.run();
+		t1.start();
+		
 		
 	//Using the constructor of the type Thread(String name)
 		MyThr2 t2 = new MyThr2("Swati1Thread");
 		System.out.println("Name of the running thread is: "+t2.getName());
 		System.out.println("Id of the running thread is: "+t2.getId());
-		t2.run();
+		t2.start();
+		
 		
 	//Using the constructor of the type Thread(Runnable r)
 		MyThr3 tr3 = new MyThr3(); 
 		Thread t3 = new Thread(tr3);
 		System.out.println("Id of the running thread is: "+t3.getId());
-		tr3.run();
+		t3.start();
+		
 		
 	//Using the constructor of the type Thread(Runnable r, String s)
 		MyThr4 tr4 = new MyThr4("Swati2Thread"); 
 		Thread t4 = new Thread(tr4);
 		System.out.println("Id of the running thread is: "+t4.getId());
-		tr4.run();
+		t4.start();
+		
 	}
 
 }

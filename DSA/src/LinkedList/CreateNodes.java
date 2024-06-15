@@ -1,6 +1,8 @@
 package LinkedList;
 import java.util.Scanner;
 
+
+
 public class CreateNodes {
     Node head;
     public static int size;
@@ -68,6 +70,7 @@ public class CreateNodes {
     }
 
     
+    
     //Method to add the node at the beginning of the existing linked list
     public void addFirst(String val) {
     	Node newNode = new Node(val);
@@ -107,6 +110,7 @@ public class CreateNodes {
     	head = head.next;
     	size--;
     }
+  
     
     
     //Method to delete the last node from the existing linked list
@@ -149,7 +153,7 @@ public class CreateNodes {
     
  // Method to insert a value at some random place in the linked list
     public void insertAtRandom(int index) {
-        if (index >= 0 && index <= size) { // Use && instead of || and <= to allow insertion at the end
+        if (index >= 0 && index <= size) { 								// Use && instead of || and <= to allow insertion at the end
             System.out.println("Enter the value in the node.");
             Scanner sc = new Scanner(System.in);
             String value = sc.nextLine();
@@ -217,38 +221,38 @@ public class CreateNodes {
         System.out.println(list.getSize());
         System.out.println();
         
-//        System.out.println("Adding a node at the beginning of the already existing linked list: ");
-//        list.addFirst("LinkedList");
-//        list.printList();
-//        System.out.println("Size of the existing linked list is: "+list.getSize());
-//        System.out.println();
-//        
-//        System.out.println("Adding the node at the end of the already existing linkedlist: ");
-//        list.addTail("Hurray!!");
-//        list.printList();
-//        System.out.println("Size of the existing linked list is: "+list.getSize());
-//        System.out.println();
-//        
-//        System.out.println("Removing the first node from the existing linked list: ");
-//        list.deleteFirst();
-//        list.printList();
-//        System.out.println("Size of the existing linked list is: "+list.getSize());
-//        System.out.println();
-//        
-//        System.out.println("Removing the last node from the existing linked list: ");
-//        list.deleteTail();
-//        list.printList();
-//        System.out.println("Size of the existing linked list is: "+list.getSize());
-//        System.out.println();
-//        
-//        if(size>=0) {
-//        	System.out.println("You have the index value from 0 to "+(size-1));
-//        	System.out.println("Please select the index value in the range [0,"+(size-1)+"]");
-//        	int index = sc.nextInt();
-//        	list.getValue(index);
-//        }else {
-//        	System.out.println("You have no node in the linkedlist");
-//        }
+        System.out.println("Adding a node at the beginning of the already existing linked list: ");
+        list.addFirst("LinkedList");
+        list.printList();
+        System.out.println("Size of the existing linked list is: "+list.getSize());
+        System.out.println();
+        
+        System.out.println("Adding the node at the end of the already existing linkedlist: ");
+        list.addTail("Hurray!!");
+        list.printList();
+        System.out.println("Size of the existing linked list is: "+list.getSize());
+        System.out.println();
+        
+        System.out.println("Removing the first node from the existing linked list: ");
+        list.deleteFirst();
+        list.printList();
+        System.out.println("Size of the existing linked list is: "+list.getSize());
+        System.out.println();
+        
+        System.out.println("Removing the last node from the existing linked list: ");
+        list.deleteTail();
+        list.printList();
+        System.out.println("Size of the existing linked list is: "+list.getSize());
+        System.out.println();
+        
+        if(size>=0) {
+        	System.out.println("You have the index value from 0 to "+(size-1));
+        	System.out.println("Please select the index value in the range [0,"+(size-1)+"]");
+        	int index = sc.nextInt();
+        	list.getValue(index);
+        }else {
+        	System.out.println("You have no node in the linkedlist");
+        }
         
         if(size>0) {
         	System.out.println("You have the index value from 0 to "+(size-1)+". Select any index from this range where you want to insert the new node");
@@ -275,10 +279,7 @@ public class CreateNodes {
         	System.out.println("You have no node to delete.");
         }
         list.printList();
-        
-        
-        
-        
+              
         
     }
 }

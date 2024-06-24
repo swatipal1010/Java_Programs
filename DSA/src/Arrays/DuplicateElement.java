@@ -1,9 +1,10 @@
 package Arrays;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.HashSet;
 
 public class DuplicateElement {
-	
+	//Method-1
 	public static int findDuplicate(int[] nums) {
         Arrays.sort(nums);
         int i;
@@ -11,6 +12,20 @@ public class DuplicateElement {
             if(nums[i]==nums[i+1]){
                 break;
             }
+        }
+        return nums[i];
+    }
+	
+	//Method-2
+	public static int findDuplicate2(int[] nums) {
+        HashSet<Integer> unique = new HashSet<>();
+        int i;
+        for(i=0; i<nums.length; i++){
+            if(unique.contains(nums[i])){
+                break;
+            }else{
+                unique.add(nums[i]);
+            }   
         }
         return nums[i];
     }
@@ -27,7 +42,8 @@ public class DuplicateElement {
 		}
 		
 		System.out.println("Array is: "+Arrays.toString(arr));
-		System.out.println("Duplicate element from the array is: "+findDuplicate(arr));
+		System.out.println("Duplicate element from the array is (using Method-1): "+findDuplicate(arr));
+		System.out.println("Duplicate element from the array is (using Method-2): "+findDuplicate2(arr));
 	}
 
 }

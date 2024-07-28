@@ -29,7 +29,7 @@ public class HashMapBasics {
 		
 		
 		//to delete an element from the hashmap
-		map.remove("China");
+		System.out.println("Removed value: "+map.remove("China"));
 		
 		//To create a set of keys present in the hashmap and then print the hashmap
 		Set<String> keys = map.keySet();

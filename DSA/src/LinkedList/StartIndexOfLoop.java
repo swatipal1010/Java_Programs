@@ -2,14 +2,14 @@ package LinkedList;
 
 import java.util.Scanner;
 
-import LinkedList.CreateNodes.Node;
+import LinkedList.DetectLoopInLL.Node;
 
-public class ReverseLinkedList2 {
+public class StartIndexOfLoop {
 	
 	Node head;
     public static int size;
 
-    ReverseLinkedList2(){
+    StartIndexOfLoop(){
         this.size = 0;
     }
 
@@ -71,54 +71,52 @@ public class ReverseLinkedList2 {
     	return size;
     }
 	
-    
-    
-    //Reverse a LinkedList iteratively using pointers
-    public Node reverseLLIterative(Node head) {
-    	Node curr = head;
-    	Node prev = null;
-    	Node forward;
-    	
-    	while(curr!=null) {
-    		forward = curr.next;
-    		curr.next = prev;
-    		prev = curr;
-    		curr = forward;
-    	}
-    	return prev;
+    //Method to detect loop and return the start node of the loop
+    public Node detectCycle(Node head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        
+        Node slow = head;
+        Node fast = head;
+        
+        // Detect if there's a cycle
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                break;
+            }
+        }
+        
+        // If no cycle is found
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+        
+        // Find the start of the cycle
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        return slow; // the start of the cycle
     }
     
-    //Reverse linked list recursively
-    public Node reverseLLRecursive(Node head) {
-    	if(head==null || head.next==null)
-    	{
-    		return head;
-    	}
-    	
-    	Node newHead = reverseLLRecursive(head.next);
-    	head.next.next = head;
-    	head.next = null;
-    	return newHead;
-    }
-    
-    
-    
+	
 	public static void main(String[] args) {
-		ReverseLinkedList2 list = new ReverseLinkedList2();
-		
+		StartIndexOfLoop list = new StartIndexOfLoop();
 		list.createNode();
-		System.out.println("Created Linked list is: ");
 		list.printList();
 		
-		System.out.println("Size of the linked list is: "+list.getSize());
+		Node cycle = list.detectCycle(list.head);
 		
-		list.head = list.reverseLLIterative(list.head);
-		System.out.println("Reversed linked list is: ");
-		list.printList();
-		
-		list.head = list.reverseLLRecursive(list.head);
-		System.out.println("Reversed Linked List is: ");
-		list.printList();
+		if(cycle==null) {
+			System.out.println("There exists no loop in the linked list");
+		}else {
+			System.out.println("Cycle is detected at node with value: "+cycle.val);
+		}
 
 	}
 

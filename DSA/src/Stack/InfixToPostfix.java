@@ -20,6 +20,9 @@ public class InfixToPostfix {
         return precedenceMap.getOrDefault(operator, -1);  // Return -1 for undefined operators
     }
 
+    
+    
+    //Method to get the post fix notation of the infix notation
     public static char[] funcPostFix(char[] infix) {
         int len = infix.length;
         char[] retPostFix = new char[len];
@@ -62,6 +65,7 @@ public class InfixToPostfix {
 
     
     
+//Method to calculate the value of the obtained post-fix notation   
     public static int postfixValue(char[] postfixArr) {
         int i, a, b;
         for (i = 0; i < postfixArr.length; i++) {

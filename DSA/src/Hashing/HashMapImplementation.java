@@ -130,6 +130,7 @@ public class HashMapImplementation {
                 return null;		//If key isn't found in the linkedlist of any bucket, we return false
             } else {
             	Node node = buckets[bi].remove(di);		//Remove the node containing the key being passed to this function
+            	n--;									//After removing the node, decrease the no. of nodes by 1
                return node.value;						//return the value of the key of the node being removed
             }
         }

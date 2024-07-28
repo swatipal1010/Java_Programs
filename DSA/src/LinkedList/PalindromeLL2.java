@@ -72,7 +72,8 @@ public class PalindromeLL2 {
     }
     
     
-    //Method to check whether the linked list is palindromic or not
+    //Method to check whether the linked list is palindromic or not using hare turtle approach (2 pointers approach)
+    //Space complexity = 	O(1) --> Optimal solution
     public boolean isPalindrome(Node head) {
     	if(head==null) {
     		System.out.println("There is no node in the linked list");
@@ -90,6 +91,7 @@ public class PalindromeLL2 {
     		}
     		mid = slow;
     		
+    		//reverse a linked list
     		Node curr = slow;
         	Node prev = null;
         	Node forward;

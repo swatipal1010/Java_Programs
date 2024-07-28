@@ -57,7 +57,7 @@ public class UnionOf2Arrays {
 		}
 		System.out.println();
 		int count = doUnion(a,b);
-		System.out.println("Union of array a and b contains: "+count+" elments.");		//1 2 3 4 5 9
+		System.out.println("Union of array a and b contains: "+count+" elements.");		//1 2 3 4 5 9
 		
 
 	}

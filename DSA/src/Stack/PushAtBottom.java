@@ -10,7 +10,7 @@ public class PushAtBottom {
 		}
 		
 		int top = s.pop();
-		pushAtBottom(data, s);
+		pushAtBottom(data, s);			//Recursive call
 		s.push(top);
 	}
 	

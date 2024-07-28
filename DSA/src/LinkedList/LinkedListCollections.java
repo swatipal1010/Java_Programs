@@ -28,11 +28,11 @@ public class LinkedListCollections {
 		
 		//To add a node at a particular index in the linked list
 		list.add(2, "a");
-		System.out.println("Linked list is: "+list);
+		System.out.println("Linked list  after adding a node at index 2 containing value \'"+list.get(2)+"\' is: "+list);
 		
 		//To add a arrayList collection to the already existing linked list
 		Collection<String> arrayL = new ArrayList<>();
-		arrayL.add("I");
+		arrayL.add("I");								//Always add the node at end
 		arrayL.add("love");
 		arrayL.add("programming");
 		System.out.println("ArrayList is: "+arrayL);
@@ -56,7 +56,7 @@ public class LinkedListCollections {
 		
 		
 		//Creating a list Iterator for the given linked list
-		ListIterator<String> list_itr = list.listIterator(3);
+		ListIterator<String> list_itr = list.listIterator(3);		//Starting the list iterator from index 3
 		System.out.println("Values in the list iterator are: ");
 		while(list_itr.hasNext()) {
 			System.out.println(list_itr.next());
@@ -64,7 +64,7 @@ public class LinkedListCollections {
 		
 		//To remove the first element of the linked list
 		System.out.println("Linked list before removing the element from it: "+list);
-		list.poll();																		//list.pollFirst()and remove() also does the same job
+		System.out.println("Node containing value \'"+list.poll()+"\' is removed from linked list");																		//list.pollFirst()and remove() also does the same job
 		System.out.println("Liked list after removing the first element from it: "+list);	
 		
 		//To remove the last element from the linked list

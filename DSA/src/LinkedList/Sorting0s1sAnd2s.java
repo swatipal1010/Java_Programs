@@ -67,7 +67,7 @@ public class Sorting0s1sAnd2s {
     }
 	
     
-    //Method to sort 0s, 1s and 2s in the linked list
+    //METHOD-1 : To sort 0s, 1s and 2s in the linked list  --> NAIVE APPROACH(Takes O(2n) time complexity bcz LL is traversed twice)
     public Node sortList(Node head) {
     	if(head==null || head.next==null) {
     		return null;
@@ -108,7 +108,51 @@ public class Sorting0s1sAnd2s {
     	
     	return head;
     }
-	
+    
+    //METHOD-2: Method to sort LL of 0s, 1s and 2s using O(n) time complexity	
+    public Node sortLL(Node head) {
+    	if(head==null || head.next==null) {
+    		return head;
+    	}
+    	//Creating dummy nodes which creates separate list of sorted 0s, 1s and 2s
+    	Node zeroCount = new Node(-1);
+    	Node oneCount = new Node(-1);
+    	Node twoCount = new Node(-1);
+    	
+    	Node temp = head;
+    	//pointer to move across the separate sorted lists
+    	Node zero = zeroCount;
+    	Node one = oneCount;
+    	Node two = twoCount;
+    	
+    	//Creating separate sorted lists
+    	while(temp!=null) {
+    		if(temp.val==0) {
+    			zero.next = temp;
+    			zero = temp;
+    		}else if(temp.val==1) {
+    			one.next = temp;
+    			one = temp;
+    		}else {
+    			two.next = temp;
+    			two = temp;
+    		}
+    		temp = temp.next;
+    	}
+    	//connecting the separate sorted list of 0s, 1s and 2s together
+    	if(oneCount.next!=null) {
+    		zero.next = oneCount.next;
+    		one.next = twoCount.next;
+    		two.next = null;
+    	}else {
+    		zero.next = twoCount.next;
+    		two.next = null;
+    	}
+    	head = zeroCount.next;
+    	return head;
+    }
+    
+    
 	public static void main(String[] args) {
 		Sorting0s1sAnd2s list = new Sorting0s1sAnd2s();
 		
@@ -118,6 +162,10 @@ public class Sorting0s1sAnd2s {
 		
 		System.out.println("List after sorting is: ");
 		list.sortList(head);
+		list.printList();
+		
+		System.out.println("List after sorting is: ");
+		list.sortLL(head);
 		list.printList();
 
 	}

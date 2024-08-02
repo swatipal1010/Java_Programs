@@ -60,7 +60,7 @@ public class MergekLists {
         }
         System.out.println("null");
     }
-    
+
     // Method to merge 'k' sorted lists together to produce a single sorted linked list
     public Node mergeLists(Node[] heads) {
         // Check if all heads are null
@@ -74,18 +74,18 @@ public class MergekLists {
         if (allNull) {
             return null;
         }
-        
+
         ArrayList<Integer> arrList = new ArrayList<>();
         for (Node head : heads) {
             Node temp = head;
             while (temp != null) {
                 arrList.add(temp.val); // Add the value to the ArrayList
-                temp = temp.next; 
+                temp = temp.next;
             }
         }
-        
+
         Collections.sort(arrList);
-        
+
         // Reassign the sorted values to the nodes
         int index = 0;
         for (Node head : heads) {
@@ -95,11 +95,11 @@ public class MergekLists {
                 temp = temp.next;
             }
         }
-        
+
         // Connect all the lists to form a single sorted list
         Node newHead = null;
         Node newTail = null;
-        
+
         for (Node head : heads) {
             if (head != null) {
                 if (newHead == null) {
@@ -108,16 +108,67 @@ public class MergekLists {
                 } else {
                     newTail.next = head;
                 }
-                
+
                 while (newTail.next != null) {
                     newTail = newTail.next;
                 }
             }
         }
-        
+
         return newHead;
     }
 
+    // Method to merge two sorted lists
+    public Node merge2Lists(Node list1, Node list2) {
+        Node dummy = new Node(-1);
+        Node temp = dummy;
+
+        while (list1 != null && list2 != null) {
+            if (list1.val <= list2.val) {
+                temp.next = list1;
+                list1 = list1.next;
+            } else {
+                temp.next = list2;
+                list2 = list2.next;
+            }
+            temp = temp.next;
+        }
+
+        if (list1 != null) {
+            temp.next = list1;
+        } else {
+            temp.next = list2;
+        }
+
+        return dummy.next;
+    }
+
+    // Optimal method to merge k linkedlists to return a single sorted list
+    public Node mergeOptimal(Node[] heads) {
+        // Check if all heads are null
+        boolean allNull = true;
+        for (Node head : heads) {
+            if (head != null) {
+                allNull = false;
+                break;
+            }
+        }
+        if (allNull) {
+            return null;
+        }
+
+        Node mergedHead = null;
+        for (Node head : heads) {
+            if (mergedHead == null) {
+                mergedHead = head;
+            } else {
+                mergedHead = merge2Lists(mergedHead, head);
+            }
+        }
+        return mergedHead;
+    }
+
+    // Main method
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of linked lists you want to create: ");
@@ -138,9 +189,13 @@ public class MergekLists {
         }
 
         MergekLists merger = new MergekLists();
-        Node sortedHead = merger.mergeLists(heads);
-        
-        System.out.println("Sorted single linked list: ");
-        merger.printList(sortedHead);
+//        Node sortedHead = merger.mergeLists(heads);
+//
+//        System.out.println("Sorted single linked list: ");
+//        merger.printList(sortedHead);
+
+        System.out.println("Sorted single linked list after merging 'k' linked lists optimally: ");
+        Node optimalHead = merger.mergeOptimal(heads);
+        merger.printList(optimalHead);
     }
 }

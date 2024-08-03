@@ -62,7 +62,7 @@ public class OddEvenLL {
         System.out.println("null");
     }
     
-    //method to create linked list of odd and even indices
+    //Method-1: To create linked list of odd and even indices using two dummy nodes
     public Node oddEvenList(Node head) {
         if(head==null || head.next==null){
             return head;
@@ -88,13 +88,37 @@ public class OddEvenLL {
         return oddDummy.next;
     }
     
+    //Method-2: To find odd-even linked list
+    public Node OddEvenLL(Node head) {
+    	if(head==null || head.next==null) {
+    		return head;
+    	}
+    	Node odd = head;
+    	Node evenHead = head.next;
+    	Node even = evenHead;
+    	
+    	while(even!=null && even.next!=null) {
+    			odd.next = odd.next.next;
+        		odd = odd.next;  		
+    			even.next = even.next.next;
+        		even = even.next;   		
+    	}
+    	odd.next = evenHead;
+    	return head;
+    }
+    
 	public static void main(String[] args) {
 		OddEvenLL list = new OddEvenLL();
 		list.createNode();
 		System.out.println("Odd-Even linked list is: ");
 		list.oddEvenList(list.head);
 		list.printList();
-
+		
+		OddEvenLL list2 = new OddEvenLL();
+		list2.createNode();
+		System.out.println("Odd-even linked list is: ");
+		list2.OddEvenLL(list2.head);
+		list2.printList();
 	}
 
 }

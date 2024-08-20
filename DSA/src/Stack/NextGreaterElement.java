@@ -2,7 +2,36 @@ package Stack;
 import java.util.*;
 
 public class NextGreaterElement {
+	
+	//METHOD-1  Naive Approach (Time complexity= O(M*N))
+	public int[] nextGreaterElement(int[] nums1, int[] nums2) {		//nums1 is subset of nums2
+        HashMap<Integer, Integer> nums1Map = new HashMap<>();
+        for(int i = 0; i < nums1.length; i++) {
+            nums1Map.put(nums1[i], i);
+        }
 
+        int[] result = new int[nums1.length];
+        
+        for(int i = 0; i < nums1.length; i++) {
+            result[i] = -1;
+        }
+
+        for(int i = 0; i < nums2.length; i++) {
+            int curr = nums2[i];
+            if(nums1Map.containsKey(curr)) {
+                for(int j = i + 1; j < nums2.length; j++) {
+                    if(nums2[j] > curr) {
+                        result[nums1Map.get(curr)] = nums2[j];
+                        break; 
+                    }
+                }
+            }
+        }
+        return result;
+    }
+	
+	
+	//METHOD-2 Optimized time complexity 
     public static int[] nextGreater(int[] parent, int[] child) {
         // Creating hashmap of the elements in the child array 
         HashMap<Integer, Integer> map = new HashMap<>();

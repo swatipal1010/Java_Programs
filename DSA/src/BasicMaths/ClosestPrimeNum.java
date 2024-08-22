@@ -1,8 +1,10 @@
+package BasicMaths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ClosestPrimeNum {
-    public int[] closestPrimes(int left, int right) {
+    public static int[] closestPrimes(int left, int right) {
         List<Integer> primes = generatePrimes(right);
         List<Integer> inRangePrimes = new ArrayList<>();
 
@@ -32,7 +34,7 @@ public class ClosestPrimeNum {
         return result;
     }
 
-    private List<Integer> generatePrimes(int max) {
+    public static List<Integer> generatePrimes(int max) {
         boolean[] isPrime = new boolean[max + 1];
         for (int i = 2; i <= max; i++) {
             isPrime[i] = true;
@@ -57,12 +59,13 @@ public class ClosestPrimeNum {
     }
 
     public static void main(String[] args) {
-        ClosestPrimeNum sol = new ClosestPrimeNum();
-        int[] result1 = sol.closestPrimes(10, 19);
-        int[] result2 = sol.closestPrimes(4, 6);
-
-        // Print results
-        System.out.println("Result 1: [" + result1[0] + ", " + result1[1] + "]");
-        System.out.println("Result 2: [" + result2[0] + ", " + result2[1] + "]");
+        System.out.println("Enter the left value of the from where the range starts: ");
+        Scanner sc = new Scanner(System.in);
+        int left = sc.nextInt();
+        System.out.println("Enter the right value where range ends: ");
+        int right = sc.nextInt();
+        
+        int[] result = closestPrimes(left, right);
+        System.out.println("Result 1: [" + result[0] + ", " + result[1] + "]");
     }
 }

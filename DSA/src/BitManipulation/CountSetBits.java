@@ -2,7 +2,7 @@ package BitManipulation;
 import java.util.Scanner;
 
 public class CountSetBits {
-
+	//Method-1
 	public static int countBits(int num) {
 		int count =0;
 		for(int i=1; i<=num; i++) {
@@ -16,6 +16,16 @@ public class CountSetBits {
 					count++;
 				}				
 			}
+		}
+		return count;
+	}
+	
+	//Method-2
+	public static int countBits2(int num) {
+		int count = 0;
+		while(num!=0) {
+			num = num&(num-1);
+			count++;
 		}
 		return count;
 	}

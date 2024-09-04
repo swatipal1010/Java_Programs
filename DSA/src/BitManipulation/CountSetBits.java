@@ -24,7 +24,20 @@ public class CountSetBits {
 	public static int countBits2(int num) {
 		int count = 0;
 		while(num!=0) {
-			num = num&(num-1);
+			num = num&(num-1);		//Getting set from one-by-one from right to left, turning it off and taking its count
+			count++;
+		}
+		return count;
+	}
+	
+	//Method-3
+	public static int countBits3(int num) {
+		int count = 0;
+		while(num>1) {
+			count += num&1;			//If answer is 1 , 1 is added to the count otherwise not
+			num = num>>1;
+		}
+		if(num==1) {
 			count++;
 		}
 		return count;

@@ -18,6 +18,23 @@ public class TransposeMatrix {
 		}
 	}
 	
+	//Method to reverse the rows of the transposed matrix
+	public static void revRows(int[][] matrix) {
+		int n = matrix.length;
+		
+		for(int i=0; i<n; i++) {
+			int start = 0; 
+			int end = n-1;
+			while(start<end) {
+				int temp = matrix[i][start];
+				matrix[i][start] = matrix[i][end];
+				matrix[i][end] = temp;
+				start++;
+				end--;
+			}
+		}
+	}
+	
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -37,6 +54,9 @@ public class TransposeMatrix {
 		
 		transpose(matrix);
 		System.out.println("Matrix after transpose: "+Arrays.deepToString(matrix));
+		
+		revRows(matrix);
+		System.out.println("Transposed matrix after reversing elements of each of its rows is: "+Arrays.deepToString(matrix));
 
 	}
 

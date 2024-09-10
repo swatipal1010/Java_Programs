@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class RotateByK {
-	
+	//Method-1 (Takes too long if the input is very large)
 	public static void rotateArray(int[] arr, int k) {
 		int len = arr.length;
 		
@@ -17,6 +17,7 @@ public class RotateByK {
 	}
 	
 	
+	//Method-2 (Runs Optimally)
 	public static void reverse(int[] arr, int start, int end) {
 		while(start<end) {
 			int temp = arr[start];
@@ -29,23 +30,18 @@ public class RotateByK {
 	public static void rotateArr(int[] arr, int k) {
 		int n = arr.length;
 		k = k%n;
-		int start = 0;
-		int end = n-1;
-		for(int i=0; i<k; i++) {
-			int temp = arr[start];
-			arr[start] = arr[end];
-			arr[end] = temp;
-			start++;
-			end--;
-		}
 		
-		end = n-1;
-		reverse(arr,start,end);
+		//Reverse entire array
+		reverse(arr,0,n-1);
 		
-		start = 0;
-		end = k-1;
-		reverse(arr,start,end);		
+		//Reverse first k elements
+		reverse(arr,0,k-1);
+		
+		//Reverse remaining elements (n-k elements)
+		reverse(arr,k,n-1);
+			
 	}
+	
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

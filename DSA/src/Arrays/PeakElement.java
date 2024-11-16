@@ -30,7 +30,7 @@ public class PeakElement {
 	        if (nums[mid] > nums[mid + 1]) {
 	            // The peak is in the left half, including mid
 	            end = mid;
-	        } else {
+	        } else{
 	            // The peak is in the right half, excluding mid
 	            start = mid + 1;
 	        }

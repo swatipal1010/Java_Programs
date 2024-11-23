@@ -95,6 +95,33 @@ public class TargetInSortedMatrix {
 	}
 	
 	
+	//METHOD-5 Time Complexity = O(logm+logn). Treating 2D matrix as a linear array.
+	public static int[] findTarget5(int[][] matrix, int target) {
+		int totalRows = matrix.length;
+		int totalCols = matrix[0].length;
+		
+		int start = 0;
+		int end = totalRows*totalCols-1;
+		
+		 while (start <= end) {
+		        int mid = start + (end - start) / 2;
+		        
+		        // Map linear index to 2D index
+		        int row = mid / totalCols;
+		        int col = mid % totalCols;
+
+		        if (matrix[row][col] == target) {
+		            return new int[] {row,col};
+		        } else if (matrix[row][col] < target) {
+		            start = mid + 1;
+		        } else {
+		            end = mid - 1;
+		        }
+		    }
+		 return new int[] {-1,-1};
+	}
+	
+	
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -119,7 +146,7 @@ public class TargetInSortedMatrix {
 		System.out.println("Enter the target element from the matrix: ");
 		int target = sc.nextInt();
 		
-		int[] index = findTarget4(matrix, target);
+		int[] index = findTarget5(matrix, target);
 		
 		System.out.println("Target element "+target+" lies at at index: "+Arrays.toString(index));
 		

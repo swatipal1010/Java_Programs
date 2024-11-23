@@ -43,6 +43,7 @@ public class TargetInSortedMatrix {
 	    return new int[] { -1, -1 }; 
 	}
 
+	
 	//METHOD-3 Time Complexity = O(m+logn). Checking if element can lie in a row. If yes, apply Binary Search.
 	public static int[] binarySearch(int[] row, int target, int i) {
 		int start = 0;
@@ -68,7 +69,32 @@ public class TargetInSortedMatrix {
 	    }
 	    return new int[] { -1, -1 }; 
 	}
-
+	
+	
+	//METHOD-4 Time Complexity = O(logm+logn). We find the suitable row  using Binary Search that contains the target element and then apply Binary Search on that row.
+	public static int[] findTarget4(int[][] matrix, int target) {
+		int totalRows = matrix.length;
+		int totalCols = matrix[0].length;
+		int start = 0;
+		int end = totalRows-1;
+		
+		int ans[] = new int[2];
+		Arrays.fill(ans, -1);
+		
+		while(start<=end) {
+			int mid = start+(end-start)/2;
+			if(matrix[mid][totalCols-1]<target){		//If the target element is greatest than the last elem of a row, then start searching from next row
+				start = mid+1;
+			}else if(matrix[mid][0]>target) {			//If the target ele is less than 1st elem of a row, start searching from rows above it
+				end = mid-1;
+			}else {										//If target<=less than last elem of a row and target>=1st elem of a row, target lies in the considered row
+				return binarySearch(matrix[mid], target,  mid);
+			}
+		}
+			return ans;
+	}
+	
+	
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -93,9 +119,9 @@ public class TargetInSortedMatrix {
 		System.out.println("Enter the target element from the matrix: ");
 		int target = sc.nextInt();
 		
-		int[] index = findTarget3(matrix, target);
+		int[] index = findTarget4(matrix, target);
 		
-		System.out.println("Target element "+target+" liest at index: "+Arrays.toString(index));
+		System.out.println("Target element "+target+" lies at at index: "+Arrays.toString(index));
 		
 		sc.close();
 	}

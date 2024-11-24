@@ -57,7 +57,15 @@ public class SingleElementInSortedArray {
 		
 		for(int i=1; i<nums.length-1; i++) {
 			int mid = low+(high-low)/2;
+			if (nums[mid]!=nums[mid-1] && nums[mid]!=nums[mid+1]) {
+				return nums[mid];
+			}else if(mid%2==0 && (nums[mid]==nums[mid+1])) {
+				low = mid+1;
+			}else {
+				high = mid-1;
+			}
 		}
+		return -1;
 	}
 	
 	
@@ -79,6 +87,9 @@ public class SingleElementInSortedArray {
 		
 		int ans2 = singleElement2(arr);
 		System.out.println("Unique element in the array is: "+ans2);
+		
+		int ans3 = singleElement3(arr);
+		System.out.println("Unique element in the array is: "+ans3);
 
 	}
 

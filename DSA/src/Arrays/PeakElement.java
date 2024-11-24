@@ -38,8 +38,6 @@ public class PeakElement {
 	    // When start == end, we have found the peak element
 	    return start;
 	}
-
-	
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

@@ -16,7 +16,7 @@ public class ThreeDigitNumsCount {
 			freqMap[nums[i]]++;
 		}
 		
-		
+		//Count the frequency of each digit in each element of the array
 		int countDigFreq[] = new int[10];
 		for(int i=100; i<1000; i+=2) {
 			Arrays.fill(countDigFreq, 0);
@@ -28,6 +28,7 @@ public class ThreeDigitNumsCount {
 				temp = temp/10;
 			}
 			
+			//Check if the element being considered is possible to be formed using the digits stored in the provided array
 			boolean numPossible = isNumPossible(countDigFreq, freqMap);
 			if(numPossible) {
 				list.add(i);
@@ -44,7 +45,7 @@ public class ThreeDigitNumsCount {
 	
 	public static boolean isNumPossible(int[] countDigFreq, int[] freqMap) {
 		for(int i=0; i<10; i++) {
-			if(countDigFreq[i]>freqMap[i]) {
+			if(countDigFreq[i]>freqMap[i]) {	//Number is possible to form if the freq of each digit of the considered number is equal to the freq of digits stored in the original array
 				return false;
 			}
 		}

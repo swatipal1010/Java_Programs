@@ -90,15 +90,18 @@ class FirstAndLastAppearance {
         System.out.println("Enter the target element whose first and last appearance you want to know in the array: ");
         int target = sc.nextInt();
         
+        
+        //using two pointers
         int ans[] = firstlast(arr, target);
         if (ans[0] != -1 && ans[1] != -1) {
-            System.out.println("First and last appearance of element " + target + " in the array is at index: " + Arrays.toString(ans));
+            System.out.println("First and last occurance of element " + target + " is at index: " + Arrays.toString(ans));
         } else {
             System.out.println("Element " + target + " doesn't exist in the array.");
         }
         
+        //using binary search
         int[] result = searchRange(arr, target);
-        System.out.println("First and last occurrence of " + target + ": " + Arrays.toString(result));
+        System.out.println("First and last occurrence of element " + target + " is at index: " + Arrays.toString(result));
         
         sc.close();
     }

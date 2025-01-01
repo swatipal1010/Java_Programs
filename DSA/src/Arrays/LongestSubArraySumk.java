@@ -57,14 +57,15 @@ public class LongestSubArraySumk {
 		int sum =0;
 		int maxLen = 0;
 		while(right<n) {
+			sum += arr[right];
 			while(left<=right && sum>targetSum) {
 				sum -= arr[left];
 				left++;
 			}
-			sum += arr[right];
 			if(sum==targetSum) {
 				maxLen = max(maxLen, right-left+1);
 			}
+			right++;
 		}
 		return maxLen;
 	}
@@ -93,7 +94,7 @@ public class LongestSubArraySumk {
 		int ans2 = longestSubArray2(arr, targetSum);
 		System.out.println("Length of the longest subarray having sum "+"\'"+targetSum+"\'"+" is: "+ans2);
 
-		int ans3 = longestSubArray2(arr, targetSum);
+		int ans3 = longestSubArray3(arr, targetSum);
 		System.out.println("Length of the longest subarray having sum "+"\'"+targetSum+"\'"+" is: "+ans3);
 		
 

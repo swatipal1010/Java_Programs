@@ -25,27 +25,29 @@ public class LongestSubArraySumk {
 	
 	//METHOD 2: Using HashMap (T.C = O(2n))
 	public static int longestSubArray2(int arr[], int targetSum) {
-	    HashMap<Integer, Integer> map = new HashMap<>();
-	    int n = arr.length;
+		HashMap<Integer, Integer> map = new HashMap<>();
 
-	    int maxLen = 0;
-	    int sum = 0;
-	    for (int i = 0; i < n; i++) {
-	        sum += arr[i];
-	        // Check if a valid subarray ends at index i
-	        if (sum == targetSum) {
-	            maxLen = Math.max(maxLen, i + 1);
-	        }
-	        // Check if there exists a subarray with the required sum
-	        if (map.containsKey(sum - targetSum)) {
-	            maxLen = Math.max(maxLen, i - map.get(sum - targetSum));
-	        }
-	        // Store the first occurrence of the current sum
-	        if (!map.containsKey(sum)) {
-	            map.put(sum, i);
-	        }
-	    }
-	    return maxLen;
+        int n = arr.length;
+        int sum = 0;
+        int maxLen = 0;
+
+        // Initialize map with {0, -1} to handle subarrays starting from index 0
+        map.put(0, -1);
+
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+            // Check if the current sum equals the target
+            if (sum == targetSum) {
+                maxLen = Math.max(maxLen, i + 1);
+            }
+            // Check if sum - k exists in the map
+            if (map.containsKey(sum - targetSum)) {
+                maxLen = Math.max(maxLen, i - map.get(sum - targetSum));
+            }
+            // Store the first occurrence of the sum
+            map.putIfAbsent(sum, i);
+        }
+        return maxLen;
 	}
 
 	//METHOD 3: Using two pointers

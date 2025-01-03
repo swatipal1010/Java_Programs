@@ -33,7 +33,7 @@ public class MaxConsecutiveOnes {
 		
 		int arr[] = new int[size];
 		
-		System.out.println("Enter "+size+" binary numbers in the array: ");
+		System.out.println("Enter "+size+"  numbers in the array: ");
 		for(int i=0; i<size; i++) {
 			arr[i] = sc.nextInt();
 		}

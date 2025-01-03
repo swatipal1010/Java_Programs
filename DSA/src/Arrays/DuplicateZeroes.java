@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class DuplicateZeroes {
 	
+	//METHOD:1
 	public static void insert(int[] arr, int i, int j){
         if(j<arr.length){
             arr[j]=arr[i];
@@ -28,6 +29,20 @@ public class DuplicateZeroes {
         i--;
      }
     }
+    
+    //METHOD:2
+    public static void duplicateZeroes2(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                // Shift elements one step to the right
+                for (int j = nums.length - 1; j > i; j--) {
+                    nums[j] = nums[j - 1];
+                }
+                // Increment i to skip the duplicated zero
+                i++;
+            }
+        }
+    }
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -42,7 +57,10 @@ public class DuplicateZeroes {
 		}
 		
 		
-		duplicateZeros(arr);
+//		duplicateZeros(arr);
+//		System.out.println("Resultant array is: "+Arrays.toString(arr));
+
+		duplicateZeroes2(arr);
 		System.out.println("Resulant array is: "+Arrays.toString(arr));
 		
 	}

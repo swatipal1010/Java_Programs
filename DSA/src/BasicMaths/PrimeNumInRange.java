@@ -29,17 +29,7 @@ public class PrimeNumInRange {
     
     
     //METHOD-2 Optimized trial division approach
-    public static ArrayList<Integer> primeNums(int target){
-    	ArrayList<Integer> allPrimes = new ArrayList<>();
-    	
-    	for(int i=2; i<=target; i++) {
-    		boolean ans = isPrime(i);
-    		if(ans==true) {
-    			allPrimes.add(i);
-    		}
-    	}
-    	return allPrimes;
-    }
+    //To check if the passed number is a prime or not
     public static boolean isPrime(int val) {
     	if(val==2 || val==3) return true;
     	if(val%2==0 || val%3==0) return false;
@@ -61,9 +51,14 @@ public class PrimeNumInRange {
         ArrayList<Integer> result = primeNumInRange(target);
         System.out.println("Prime numbers up to " + target + " are: " + result);
         
-        System.out.println("Enter the target range up to which you want all the prime numbers: ");
-        int target2 = sc.nextInt();
-        ArrayList<Integer> result2 = primeNumInRange(target2);
-        System.out.println("Prime numbers up to " + target2 + " are: " + result2);
+       System.out.println("Enter any number you want to test whether it's prime or not: ");
+       int num = sc.nextInt();
+       
+       boolean ans = isPrime(num);
+       if(ans) {
+    	   System.out.println(num+" is a prime number.");
+       }else {
+    	   System.out.println(num+" is not a prime number.");
+       }
     }
 }

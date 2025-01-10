@@ -39,6 +39,39 @@ public class AsteroidCollision {
         return Arrays.copyOfRange(asteroids, 0, j + 1);
     }
 	
+	
+	
+	//METHOD 2
+	public static int[] asteroidCollision2(int[] asteroids) {
+        int n = asteroids.length; 
+        int j = 0; 									// Pointer to track the end of the valid stack of asteroids
+
+        for (int i = 0; i < n; i++) {
+            int asteroid = asteroids[i]; 
+            
+            while (j > 0 && asteroids[j-1] > 0 && asteroid < 0 && asteroids[j-1] < Math.abs(asteroid) ){ 	// The current asteroid is larger in size          
+                j--; 																						// The last asteroid in the stack is destroyed
+            }
+
+            /* Add the current asteroid to the stack if:
+             1. The stack is empty, OR
+             2. The current asteroid is moving right, OR
+             3. The last asteroid in the stack is moving left (no collision possible) */
+            if (j == 0 || asteroid > 0 || asteroids[j-1] < 0) {
+                asteroids[j++] = asteroid; 
+            } 
+            
+            // If the current asteroid and the last one in the stack have the same size and collide, both are destroyed
+            else if (asteroids[j-1] == Math.abs(asteroid)) {
+                j--; 
+            }
+        }
+        
+        int[] result = new int[j];
+        System.arraycopy(asteroids, 0, result, 0, j); 
+        return result; 
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of the array: ");
@@ -52,8 +85,11 @@ public class AsteroidCollision {
         }
         
         System.out.println("Array is: " + Arrays.toString(arr));
-        int ans[] = asteroidCollision(arr);
-        System.out.println("Array after collision: " + Arrays.toString(ans));
+        int ans1[] = asteroidCollision(arr);
+        System.out.println("Array after collision: " + Arrays.toString(ans1));
+        
+        int ans2[] = asteroidCollision2(arr);
+        System.out.println("Array after collision: " + Arrays.toString(ans2));
         sc.close();
 
 	}

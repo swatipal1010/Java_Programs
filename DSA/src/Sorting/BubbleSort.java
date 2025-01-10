@@ -9,7 +9,7 @@ public class BubbleSort {
 			return;
 		}
 		
-		boolean swap; 							//Flag to check if in a particular 
+		boolean swap; 							//Flag to check if in a particular pass array elements are swapped or not
 		
 		//Run external loop to execute (n-1) steps (Because when all (n-1) gets sorted, the smallest element itself falls to index 0)
 		for(int i=0; i<arr.length-1; i++) {

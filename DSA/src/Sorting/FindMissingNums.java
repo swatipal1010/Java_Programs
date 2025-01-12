@@ -55,6 +55,32 @@ public class FindMissingNums {
         return list;
     }
 
+    
+    //METHOD:3
+    public static ArrayList<Integer> findDisappearedNums(int[] nums) {
+        // Initialize a list to store the missing numbers
+        ArrayList<Integer> list = new ArrayList<>();
+        // Iterate over the array to mark numbers as visited
+        int idx = -1;
+        for (int i = 0; i < nums.length; i++) {
+            // Calculate the index based on the value in the array, ensuring zero-based indexing
+            idx = Math.abs(nums[i]) - 1;
+            // Mark the number as visited by setting the corresponding index to a negative value
+            if (nums[idx] > 0) {
+                nums[idx] = -nums[idx];
+            }
+        }
+        // Iterate again to collect all indices that are still positive, indicating missing numbers
+        for (int i = 0; i < nums.length; i++) {
+            // If the value is positive, the number (i+1) is missing
+            if (nums[i] > 0) {
+                list.add(i + 1);
+            }
+        }
+        // Return the list of missing numbers
+        return list;
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the value of N: ");
@@ -71,6 +97,9 @@ public class FindMissingNums {
         System.out.println("Missing numbers in the array are: " + ans);
         
         ans = findDisappearedNumbers(arr);
+        System.out.println("Missing numbers in the array are: " + ans);
+        
+        ans = findDisappearedNums(arr);
         System.out.println("Missing numbers in the array are: " + ans);
         
         sc.close();

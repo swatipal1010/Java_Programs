@@ -7,7 +7,7 @@ public class FirstMissingPositive {
 	public static int firstPosMissingNum(int[] arr) {
 		int i=0;
 		Arrays.sort(arr);
-		while(arr[i]<=0) {
+		while(i<arr.length && arr[i]<=0) {
 			i++;
 		}
 		int num=1;

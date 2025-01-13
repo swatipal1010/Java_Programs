@@ -5,18 +5,21 @@ import java.util.Scanner;
 
 public class FirstMissingPositive {
 	public static int firstPosMissingNum(int[] arr) {
+		int n = arr.length;
 		int i=0;
 		Arrays.sort(arr);
 		while(i<arr.length && arr[i]<=0) {
 			i++;
 		}
 		int num=1;
-		for(int j=i; j<arr.length;j++) {
-			if(arr[j]!=num) {
-				return num;
-			}
-			num++;
-		}
+		for (int j = 0; j < n; j++) {
+            if (arr[j] == num) {
+                num++;  
+                while (j + 1 < n && arr[j] == arr[j + 1]) {
+                    j++;  
+                }
+            }
+        }
 		return num;
 	}
 	public static void main(String[] args) {

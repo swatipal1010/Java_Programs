@@ -22,6 +22,34 @@ public class FirstMissingPositive {
         }
 		return num;
 	}
+	
+	
+	//METHOD 2: Using Cyclic Sort
+	public static void swap(int[] arr, int first, int second) {
+		int temp = arr[first];
+		arr[first] = arr[second];
+		arr[second] = temp;
+	}
+	public static int firstPositive(int[] arr) {
+		int i=0;
+		while(i<arr.length) {
+			int correctIndex = arr[i]-1;
+			if((arr[i]>0 && arr[i]<arr.length)&& arr[i]!=arr[correctIndex]) {
+				swap(arr,i, correctIndex);
+			}else {
+				i++;
+			}
+		}
+		for(int j=0; j<arr.length; j++) {
+			if(arr[j]!=(j+1)) {
+				return j+1;
+			}
+		}
+		return arr.length+1;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the size of the array: ");
@@ -36,7 +64,10 @@ public class FirstMissingPositive {
 		System.out.println("Array is: "+Arrays.toString(arr));
 		int ans = firstPosMissingNum(arr);
 		System.out.println("First missing positive number in the array is: "+ans);
-
+		
+		int ans2 = firstPositive(arr);
+		System.out.println("First missing positive number in the array is: "+ans2);
+		sc.close();
 	}
 
 }

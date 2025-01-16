@@ -58,6 +58,38 @@ public class BasicProblems {
 		System.out.println(curr);
 	}
 	
+	//Sum of numbers from 1 to N
+	public static int sum(int N) {
+		if(N==1) {
+			return 1;
+		}
+		return N+sum(N-1);
+	}
+	
+	//Sum of numbers from current to N
+	public static int sum2(int curr, int N) {
+	    if (curr > N) { 
+	        return 0; 
+	    }
+	    return curr + sum2(curr + 1, N);	
+	}
+	
+	
+	//Sum of digits in a number
+	public static int sumOfDigits(int N) {
+		if(N==0) {
+			return 0;
+		}
+		return (N%10)+sumOfDigits(N/10);
+	}
+	
+	//Product of digits
+	public static int productOfDigits(int num) {
+        if (num % 10 == num) {
+            return num;
+        }
+        return (num % 10) * productOfDigits(num / 10);
+    }
 	
 	public static void main(String[] args) {
 		System.out.println("Called hello function for n=3 :");
@@ -77,6 +109,15 @@ public class BasicProblems {
 		
 		System.out.println("Printing numbers from 5 to 1 using backtracking: ");
 		printNumBackTrack(1,5);
+		
+		System.out.println("Sum of values from 1 to 10 is: "+sum(10));
+		
+		System.out.println("Sum of numbers from 2 to 4 is: "+sum2(2,4));
+		
+		System.out.println("Sum of digits of number 1342 is: "+sumOfDigits(1342));
+		
+		System.out.println("Product of digits of number 1342 is: "+productOfDigits(1342));
+		
 
 	}
 

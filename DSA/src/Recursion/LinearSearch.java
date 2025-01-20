@@ -22,6 +22,17 @@ public class LinearSearch {
 		}
 		return targetIndex(arr, target, index+1);
 	}
+	
+	//Finding index from last
+	public static int findIndexFromLast(int[] arr, int target, int index) {
+		if(index==-1) {
+			return index;
+		}
+		if(arr[index]==target) {
+			return index;
+		}
+		return findIndexFromLast(arr,target, index--);
+	}
 
 	
 	public static void main(String[] args) {
@@ -44,6 +55,8 @@ public class LinearSearch {
 			System.out.println(target+ " is not present in the array.");
 		}
 		sc.close();
+		
+		System.out.println("Index of element "+target+" when searched from right to left is: "+findIndexFromLast(arr,target,arr.length-1));
 
 	}
 

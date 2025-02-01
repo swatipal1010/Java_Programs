@@ -18,9 +18,8 @@ public class OneSubsetSumEqualsK {
 			return true;
 		};		
 		//Don't pick array element
-		currentSum-=arr[index];
 		list.remove(list.size() - 1);
-		if(subsequence(arr,list,index+1,sum,currentSum+arr[index])==true) {
+		if(subsequence(arr,list,index+1,sum,currentSum)==true) {
 			return true;
 		}
 		return false;

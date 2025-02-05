@@ -17,10 +17,13 @@ public class FirstOccurrence {
 		}
 	}
 	
+	
+	//Method to find the index of last occurrence of the target element in the array
 	public static int lastOccurrence(int[] arr, int index, int target) {
 	    if (index == -1) {
 	        return -1;  
 	    }
+	    
 	    if (arr[index] == target) {
 	        return index;  
 	    }

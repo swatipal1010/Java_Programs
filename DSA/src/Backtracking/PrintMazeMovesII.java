@@ -33,7 +33,7 @@ public class PrintMazeMovesII {
 			list.addAll(pathReturn(processed+"D",row-1,col));
 		}
 		if(row>1 && col>1) {
-			list.addAll(pathReturn(processed+"DR",row-1,col-1));
+			list.addAll(pathReturn(processed+"Diag",row-1,col-1));
 		}
 		if(col>1) {
 			list.addAll(pathReturn(processed+"R",row,col-1));
